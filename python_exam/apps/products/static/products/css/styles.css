@@ -1,0 +1,12 @@
+*{
+    outline: 1px solid red;
+}
+.register{
+    display: inline-block;
+    width: 400px;
+}
+
+.login{
+    display: inline-block;
+    width: 400px;
+}

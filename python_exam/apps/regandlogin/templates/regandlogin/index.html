@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Register and login</title>
+        {% load staticfiles  %}
+        <link rel="stylesheet" href="{% static 'regandlogin/css/styles.css' %}">
+    </head>
+    <body>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="register">
+            <form action="{% url 'rnl:rnl_register' %}" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Register</legend>
+                        <label>
+                            Name:
+                            <input type="text" name="name">
+                        </label>
+                        <label>
+                            username:
+                            <input type="text" name="username">
+                        </label>
+                        <label>
+                            Password:
+                            <input type="password" name="password">
+                        </label>
+                        <label>
+                            Confirm Password:
+                            <input type="password" name="conpassword">
+                        </label>
+                        <input type="submit" value="Register">
+                </fieldset>
+            </form>
+        </div>
+        <div class="login">
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Login</legend>
+                        <label>
+                            username:
+                            <input type="text" name="username">
+                        </label>
+                        <label>
+                            Password:
+                            <input type="password" name="password">
+                        </label>
+                        <input type="submit" value="Login">
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

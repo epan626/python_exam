@@ -1,0 +1,18 @@
+.register{
+    display: inline-block;
+    width: 400px;
+}
+
+.login{
+    display: inline-block;
+    width: 400px;
+    vertical-align: top;
+}
+
+label{
+    display: inline-block;
+}
+
+input{
+    margin-left: 50px;
+}

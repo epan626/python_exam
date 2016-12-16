@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Create Item</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Create a New Wish List Item</h1>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <a href="{% url 'products:products_index' %}">Home</a>
+                <a href="{% url 'rnl:rnl_logout' %}">Logout</a>
+            </header>
+            <form action="{% url 'products:products_create' %}" method="POST">
+                {% csrf_token %}
+                Item/Product: <input type="text" name="product">
+                <input type="submit" value="Add">
+            </form>
+
+        </div>
+    </body>
+</html>
